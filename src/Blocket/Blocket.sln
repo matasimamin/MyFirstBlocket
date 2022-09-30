@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blocket.webapi", "Blocket.webapi\Blocket.webapi.csproj", "{6B4F5294-AA90-48AD-AD50-E20D678ED243}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blocket.webapi", "Blocket.webapi\Blocket.webapi.csproj", "{6B4F5294-AA90-48AD-AD50-E20D678ED243}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blocket.DataContracts", "Blocket.DataContracts\Blocket.DataContracts.csproj", "{B6D064BF-9B5C-4C6F-821C-25AFB4482A7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blocket.Data.Repository", "Blocket.Data.Repository\Blocket.Data.Repository.csproj", "{CC54B4E6-A098-426E-A737-3C63F122D414}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{6B4F5294-AA90-48AD-AD50-E20D678ED243}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B4F5294-AA90-48AD-AD50-E20D678ED243}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B4F5294-AA90-48AD-AD50-E20D678ED243}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6D064BF-9B5C-4C6F-821C-25AFB4482A7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6D064BF-9B5C-4C6F-821C-25AFB4482A7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6D064BF-9B5C-4C6F-821C-25AFB4482A7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6D064BF-9B5C-4C6F-821C-25AFB4482A7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC54B4E6-A098-426E-A737-3C63F122D414}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC54B4E6-A098-426E-A737-3C63F122D414}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC54B4E6-A098-426E-A737-3C63F122D414}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC54B4E6-A098-426E-A737-3C63F122D414}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
