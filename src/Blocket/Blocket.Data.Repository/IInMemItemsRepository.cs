@@ -6,5 +6,7 @@ namespace Blocket.webapi.Repositories
     {
         IEnumerable<Item> GetItems();
         Item GetItem(Guid id);
+
+        IEnumerable<Item> GetItemByName (string name);
     }
 }
