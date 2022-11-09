@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Blocket.webapi.Repositories;
-using Blocket.webapi.Entities;
-
+using Blocket.Data.Repositories;
+using Blocket.DataContracts;
 
 namespace Blocket.webapi.Controllers
 {
@@ -19,7 +18,7 @@ namespace Blocket.webapi.Controllers
 
        // GET / items
         [HttpGet]
-        public IEnumerable<ItemDTO> GetItems()
+        public IEnumerable<Item> GetItems()
         {
 
             var items = _repository.GetItems().Select(item => item.AsDto());
@@ -38,7 +37,7 @@ namespace Blocket.webapi.Controllers
         //}
 
         [HttpGet("{id}")]
-        public ItemDTO GetItem(Guid id)
+        public Item GetItem(Guid id)
         {
             return _repository.GetItem(id).AsDto();
         }
@@ -48,6 +47,22 @@ namespace Blocket.webapi.Controllers
         public ActionResult<IEnumerable<Item>> GetItemByName(String name)
         {
             return Ok(_repository.GetItemByName(name));
+        }
+
+        //CreateItem
+        [HttpPost]
+
+        public ActionResult<Item> CreateItem(CreateItem createItem)
+        {
+            var item = new CreateItem
+            {
+                Id=Guid.NewGuid(),
+                Name=itemDTO.Name,
+                Price=itemDTO.Price,
+                Created=DateTime.Now,
+            };
+
+            return CreatedAtActionResult(nameof(CreateItem), new(id = item.Id), item);
         }
 
     }

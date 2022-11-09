@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Blocket.DataContracts
+namespace Blocket.Business.Services
 {
-    internal class TestClass
+    public class ItemService
     {
-    
     }
 }

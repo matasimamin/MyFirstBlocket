@@ -1,12 +1,12 @@
 ﻿using Blocket.webapi.Entities;
-
-namespace Blocket.webapi.Repositories
+using Blocket.Data.Repositories.Models;
+namespace Blocket.Data.Repositories
 {
     public interface IInMemItemsRepository
     {
-        IEnumerable<Item> GetItems();
-        Item GetItem(Guid id);
+        IEnumerable<ItemDao> GetItems();
+        ItemDao GetItem(Guid id);
 
-        IEnumerable<Item> GetItemByName (string name);
+        IEnumerable<ItemDao> GetItemByName (string name);
     }
 }

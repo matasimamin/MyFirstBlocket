@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Blocket.webapi.Entities
+namespace Blocket.DataContracts
 {
     public class Item
     {
