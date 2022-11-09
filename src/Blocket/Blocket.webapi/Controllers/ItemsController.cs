@@ -17,32 +17,38 @@ namespace Blocket.webapi.Controllers
 
         public IInMemItemsRepository InMemItemsRepository { get; }
 
-        //GET / items
+       // GET / items
         [HttpGet]
-        public IEnumerable<Item> GetItems()
+        public IEnumerable<ItemDTO> GetItems()
         {
 
-            var items = _repository.GetItems().Select(item => new ItemDTO
-            {
-                Id = item.Id,
-                Name = item.Name,
-                Price = item.Price,
-                Created = item.Created
-            });
-            return _repository.GetItems();
+            var items = _repository.GetItems().Select(item => item.AsDto());
+     
+            // return _repository.GetItems();
+            return items;
         }
+
+        //[HttpGet]
+        //public string TestClass()
+        //{
+
+
+        //    // return _repository.GetItems();
+        //    return "Test";
+        //}
+
         [HttpGet("{id}")]
-        public Item GetItem(Guid id)
+        public ItemDTO GetItem(Guid id)
         {
-            return _repository.GetItem(id);
+            return _repository.GetItem(id).AsDto();
         }
-        
+
         //Get BY name
         [HttpGet("name/{Name}")]
         public ActionResult<IEnumerable<Item>> GetItemByName(String name)
         {
             return Ok(_repository.GetItemByName(name));
         }
-        
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Blocket.webapi.Entities;
+using System.Linq;
 
 namespace Blocket.webapi.Repositories
 {
@@ -26,7 +27,9 @@ namespace Blocket.webapi.Repositories
 
         public IEnumerable<Item> GetItemByName(string name)
         {
-            return items.Where(item=> item.Name == name);
+
+            return items.Where(item => item.Name.Equals(name,StringComparison.OrdinalIgnoreCase));
+            
         }
     }
 }
