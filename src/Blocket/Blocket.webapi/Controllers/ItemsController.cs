@@ -60,5 +60,13 @@ namespace Blocket.webapi.Controllers
         //     return CreatedAtActionResult(nameof(CreateItem), new(id = item.Id), item);
         // }
 
+
+        [HttpPost]
+        public ActionResult<Item> CreateItem (CreateItem item)
+        {
+            var newItem= _itemService.CreateItem(item);
+            return CreatedAtAction(nameof(CreateItem), newItem);
+
+        }
     }
 }

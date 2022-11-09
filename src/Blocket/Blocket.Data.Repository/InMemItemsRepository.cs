@@ -23,5 +23,11 @@ namespace Blocket.Data.Repository
         {
             return items.Where(item => item.Name.Equals(name,StringComparison.OrdinalIgnoreCase));
         }
+
+        public Guid CreateItem (ItemDao itemDao)
+        {
+           items.Add(itemDao);
+            return itemDao.Id;
+        }
     }
 }

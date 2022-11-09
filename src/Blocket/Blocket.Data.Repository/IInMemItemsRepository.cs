@@ -8,5 +8,9 @@ namespace Blocket.Data.Repository
         ItemDao GetItem(Guid id);
 
         IEnumerable<ItemDao> GetItemByName (string name);
+
+        
+        Guid CreateItem(ItemDao itemDao);
+       
     }
 }

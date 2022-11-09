@@ -16,6 +16,12 @@ public class ItemMapper : IItemMapper
 
     public ItemDao ToDao(CreateItem dao)
     {
-        throw new NotImplementedException();
+        return new()
+        {   Id= Guid.NewGuid(),
+            Name = dao.Name,
+            Price = dao.Price,
+            Created=DateTime.UtcNow
+        };
+       
     }
 }
