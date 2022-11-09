@@ -1,6 +1,6 @@
-﻿using Blocket.webapi.Entities;
-using Blocket.Data.Repositories.Models;
-namespace Blocket.Data.Repositories
+﻿using Blocket.Data.Repositories.Models;
+
+namespace Blocket.Data.Repository
 {
     public interface IInMemItemsRepository
     {

@@ -1,5 +1,4 @@
-﻿using System;
-namespace Blocket.DataContracts
+﻿namespace Blocket.DataContracts
 {
     public class Item
     {

@@ -1,10 +1,10 @@
-using Blocket.webapi.Repositories;
+using Blocket.Business;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddSingleton<IInMemItemsRepository, InMemItemsRepository>();
 builder.Services.AddControllers();
+builder.Services.AddBusiness();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

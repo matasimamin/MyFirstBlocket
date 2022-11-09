@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Blocket.Business.Services;
+using Microsoft.AspNetCore.Mvc;
 using Blocket.Data.Repositories;
 using Blocket.DataContracts;
 
@@ -8,24 +9,18 @@ namespace Blocket.webapi.Controllers
     [Route("[controller]")]
     public class ItemsController : ControllerBase
     {
-
-        private readonly IInMemItemsRepository _repository;
+        private readonly IItemService _itemService;
 
         //Constractur to create Rrop
-        public ItemsController(IInMemItemsRepository inMemItemsRepository) => _repository = inMemItemsRepository;
-
-        public IInMemItemsRepository InMemItemsRepository { get; }
+        public ItemsController(IItemService itemService)
+        {
+            _itemService = itemService;
+        }
 
        // GET / items
         [HttpGet]
-        public IEnumerable<Item> GetItems()
-        {
-
-            var items = _repository.GetItems().Select(item => item.AsDto());
-     
-            // return _repository.GetItems();
-            return items;
-        }
+        public ActionResult<IEnumerable<Item>> GetItems() =>
+            Ok(_itemService.GetItems());
 
         //[HttpGet]
         //public string TestClass()
@@ -36,34 +31,34 @@ namespace Blocket.webapi.Controllers
         //    return "Test";
         //}
 
-        [HttpGet("{id}")]
-        public Item GetItem(Guid id)
-        {
-            return _repository.GetItem(id).AsDto();
-        }
-
-        //Get BY name
-        [HttpGet("name/{Name}")]
-        public ActionResult<IEnumerable<Item>> GetItemByName(String name)
-        {
-            return Ok(_repository.GetItemByName(name));
-        }
-
-        //CreateItem
-        [HttpPost]
-
-        public ActionResult<Item> CreateItem(CreateItem createItem)
-        {
-            var item = new CreateItem
-            {
-                Id=Guid.NewGuid(),
-                Name=itemDTO.Name,
-                Price=itemDTO.Price,
-                Created=DateTime.Now,
-            };
-
-            return CreatedAtActionResult(nameof(CreateItem), new(id = item.Id), item);
-        }
+        // [HttpGet("{id}")]
+        // public Item GetItem(Guid id)
+        // {
+        //     return _repository.GetItem(id).AsDto();
+        // }
+        //
+        // //Get BY name
+        // [HttpGet("name/{Name}")]
+        // public ActionResult<IEnumerable<Item>> GetItemByName(String name)
+        // {
+        //     return Ok(_repository.GetItemByName(name));
+        // }
+        //
+        // //CreateItem
+        // [HttpPost]
+        //
+        // public ActionResult<Item> CreateItem(CreateItem createItem)
+        // {
+        //     var item = new CreateItem
+        //     {
+        //         Id=Guid.NewGuid(),
+        //         Name=itemDTO.Name,
+        //         Price=itemDTO.Price,
+        //         Created=DateTime.Now,
+        //     };
+        //
+        //     return CreatedAtActionResult(nameof(CreateItem), new(id = item.Id), item);
+        // }
 
     }
 }
