@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 namespace Blocket.DataContracts
 {
-    public record UpdateItem
+    public record CreateItem
     {
         [Required]
         public string Name { get; init; }

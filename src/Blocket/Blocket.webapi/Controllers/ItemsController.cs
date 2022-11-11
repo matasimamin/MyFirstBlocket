@@ -31,37 +31,12 @@ namespace Blocket.webapi.Controllers
 
         }
         [HttpGet("name/{Name}")]
-        public IEnumerable<Item> GetItemByName (string name)
+        public IEnumerable<Item> GetItemByName (string name) // no content in response body only when request by URL
         {
             return _itemService.GetItemByName(name);
             
         }
        
-
-        
-        // //Get BY name
-        // [HttpGet("name/{Name}")]
-        // public ActionResult<IEnumerable<Item>> GetItemByName(String name)
-        // {
-        //     return Ok(_repository.GetItemByName(name));
-        // }
-        //
-        // //CreateItem
-        // [HttpPost]
-        //
-        // public ActionResult<Item> CreateItem(CreateItem createItem)
-        // {
-        //     var item = new CreateItem
-        //     {
-        //         Id=Guid.NewGuid(),
-        //         Name=itemDTO.Name,
-        //         Price=itemDTO.Price,
-        //         Created=DateTime.Now,
-        //     };
-        //
-        //     return CreatedAtActionResult(nameof(CreateItem), new(id = item.Id), item);
-        // }
-
 
         [HttpPost]
         public ActionResult<Item> CreateItem (CreateItem item)
@@ -70,5 +45,16 @@ namespace Blocket.webapi.Controllers
             return CreatedAtAction(nameof(CreateItem), newItem);
 
         }
+
+        [HttpPut ("{id}")]
+        public ActionResult UpdateItem (UpdateItem updateItem , Guid id)
+        {
+           
+                _itemService.UpdateItem(updateItem, id);
+            return NoContent();
+        }
+           
+
+
     }
 }

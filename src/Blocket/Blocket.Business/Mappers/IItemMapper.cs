@@ -7,4 +7,6 @@ public interface IItemMapper
 {
     Item FromDao(ItemDao dao);
     ItemDao ToDao(CreateItem dao);
+
+    ItemDao ToDao(Item dao);
 }

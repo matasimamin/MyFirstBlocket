@@ -24,5 +24,17 @@ public class ItemMapper : IItemMapper
         };
        
     }
+
+    public ItemDao ToDao(Item dao)
+    {
+        return new()
+        {
+            Id= dao.Id,
+            Name = dao.Name,
+            Price = dao.Price,
+            Created= dao.Created,
+        };
+
+    }
 }
  

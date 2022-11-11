@@ -8,4 +8,6 @@ public interface IItemService
     Item GetItemByID(Guid id);
     IEnumerable<Item> GetItemByName(string name);
     Item CreateItem(CreateItem createItem);
+
+    void UpdateItem(UpdateItem updateItem, Guid id);
 }

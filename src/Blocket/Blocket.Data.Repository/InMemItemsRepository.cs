@@ -29,5 +29,15 @@ namespace Blocket.Data.Repository
            items.Add(itemDao);
             return itemDao.Id;
         }
+
+        public void UpdateItem(ItemDao itemDao)
+        {
+            
+            var index = items.FindIndex(item=>item.Id == itemDao.Id);
+            items[index]=itemDao;
+        
+        }
+
+        
     }
 }
