@@ -17,26 +17,28 @@ namespace Blocket.webapi.Controllers
             _itemService = itemService;
         }
 
-       // GET / items
+        // GET / items
         [HttpGet]
         public ActionResult<IEnumerable<Item>> GetItems() =>
             Ok(_itemService.GetItems());
 
-        //[HttpGet]
-        //public string TestClass()
-        //{
 
+        //GetBYID
+        [HttpGet("{id}")]
+        public Item GetItemByID(Guid id)
+        {
+            return _itemService.GetItemByID(id);
 
-        //    // return _repository.GetItems();
-        //    return "Test";
-        //}
+        }
+        [HttpGet("name/{Name}")]
+        public IEnumerable<Item> GetItemByName (string name)
+        {
+            return _itemService.GetItemByName(name);
+            
+        }
+       
 
-        // [HttpGet("{id}")]
-        // public Item GetItem(Guid id)
-        // {
-        //     return _repository.GetItem(id).AsDto();
-        // }
-        //
+        
         // //Get BY name
         // [HttpGet("name/{Name}")]
         // public ActionResult<IEnumerable<Item>> GetItemByName(String name)

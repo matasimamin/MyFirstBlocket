@@ -5,6 +5,7 @@ namespace Blocket.Business.Services;
 public interface IItemService
 {
     IEnumerable<Item> GetItems();
-    Item GetItem(Guid id);
+    Item GetItemByID(Guid id);
+    IEnumerable<Item> GetItemByName(string name);
     Item CreateItem(CreateItem createItem);
 }

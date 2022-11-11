@@ -30,18 +30,32 @@ namespace Blocket.Business.Services
             //return daos.Select(_itemMapper.FromDao);
         }
 
-        public Item GetItem(Guid id)
+        public Item GetItemByID(Guid id)
         {
             var dao = _inMemItemsRepository.GetItem(id);
             
             return _itemMapper.FromDao(dao);
         }
 
+        public IEnumerable<Item> GetItemByName (string name)
+        {
+          var item= _inMemItemsRepository.GetItemByName(name);
+            var items = new List<Item>();
+            foreach (var dao in item)
+            {
+                var _itemfromdao=_itemMapper.FromDao(dao);
+                items.Add(_itemfromdao);
+
+            }
+            return items;
+            
+        }
+
         public Item CreateItem (CreateItem createItem)
         {
             // 1. Omvandla till DAO > 2 . Spara i Repo genom anrop
            var id= _inMemItemsRepository.CreateItem(_itemMapper.ToDao(createItem));
-            return GetItem(id);
+            return GetItemByID(id);
             
 
         }

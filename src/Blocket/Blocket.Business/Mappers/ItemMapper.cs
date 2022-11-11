@@ -6,7 +6,7 @@ namespace Blocket.Business.Mappers;
 public class ItemMapper : IItemMapper
 {
     public Item FromDao(ItemDao dao) =>
-        new()
+        new() // why do we have new here if we return an exieste obj?
         {
             Created = dao.Created,
             Id = dao.Id,
@@ -25,3 +25,4 @@ public class ItemMapper : IItemMapper
        
     }
 }
+ 
