@@ -62,10 +62,16 @@ namespace Blocket.Business.Services
 
         public void UpdateItem (UpdateItem updateItem , Guid id )
         {
-
-            var item = GetItemByID(id);
             
+            var item = GetItemByID(id);
+            item.Name = updateItem.Name;
+            item.Price = updateItem.Price;
             _inMemItemsRepository.UpdateItem(_itemMapper.ToDao(item));
         }
-            }
+
+        //public Guid GetItemId()
+        //{
+        //    _inMemItemsRepository.GetItemId();
+        //}
+    }
 }

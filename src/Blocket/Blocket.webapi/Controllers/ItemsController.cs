@@ -25,9 +25,12 @@ namespace Blocket.webapi.Controllers
 
         //GetBYID
         [HttpGet("{id}")]
-        public Item GetItemByID(Guid id)
+        public ActionResult<Item> GetItemByID(Guid id)
         {
-            return _itemService.GetItemByID(id);
+            if (_itemService.GetItemByID(id) == null)
+                return NotFound();
+            return _itemService.GetItemByID(id);   //Trying to figure out how to get 404 error if Item not found (01-25)
+
 
         }
         [HttpGet("name/{Name}")]
@@ -49,7 +52,7 @@ namespace Blocket.webapi.Controllers
         [HttpPut ("{id}")]
         public ActionResult UpdateItem (UpdateItem updateItem , Guid id)
         {
-           
+           //if (id==_itemService.GetItemId())
                 _itemService.UpdateItem(updateItem, id);
             return NoContent();
         }
