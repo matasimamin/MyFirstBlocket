@@ -33,7 +33,10 @@ namespace Blocket.Business.Services
         public Item GetItemByID(Guid id)
         {
             var dao = _inMemItemsRepository.GetItem(id);
-            
+            if (dao is null)
+            {
+                return null;
+            }
             return _itemMapper.FromDao(dao);
         }
 
