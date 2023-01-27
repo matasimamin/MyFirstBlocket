@@ -10,5 +10,7 @@ public interface IItemService
     IEnumerable<Item> GetItemByName(string name);
     Item CreateItem(CreateItem createItem);
 
-    void UpdateItem(UpdateItem updateItem, Guid id);
+    Boolean UpdateItem(UpdateItem updateItem, Guid id);
+
+    void DeleteItem(Guid id);
 }

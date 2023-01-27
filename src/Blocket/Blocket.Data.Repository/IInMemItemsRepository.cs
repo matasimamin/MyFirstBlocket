@@ -13,6 +13,8 @@ namespace Blocket.Data.Repository
         Guid CreateItem(ItemDao itemDao);
 
         void UpdateItem (ItemDao itemDao);
+
+        void DeleteItem (Guid id);
        
     }
 }

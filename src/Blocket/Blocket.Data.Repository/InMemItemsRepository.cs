@@ -37,7 +37,12 @@ namespace Blocket.Data.Repository
             items[index]=itemDao;
         
         }
+        public void DeleteItem(Guid id)
+        {
+            var index = items.FindIndex(item => item.Id == id);
+            items.RemoveAt(index);
+        }
 
-        
+
     }
 }

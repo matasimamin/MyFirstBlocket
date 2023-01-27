@@ -53,7 +53,16 @@ namespace Blocket.webapi.Controllers
         public ActionResult UpdateItem (UpdateItem updateItem , Guid id)
         {
            //if (id==_itemService.GetItemId())
-                _itemService.UpdateItem(updateItem, id);
+                var isFound= _itemService.UpdateItem(updateItem, id);
+            if (isFound is false)
+            return NotFound();
+            return Ok();
+        }
+
+        [HttpDelete ("{id}")]
+        public ActionResult DeleteItem(Guid id)
+        {
+            _itemService.DeleteItem(id);
             return NoContent();
         }
            
